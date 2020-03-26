@@ -182,6 +182,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="ImageLogo\favicon.ico" />
+    <Content Include="ImageLogo\Tulsijpg.jpg" />
     <Content Include="Image\favicon.ico" />
     <Content Include="Image\Tulsijpg.jpg" />
     <Content Include="Models\TulsiPFModel.Context.tt">
