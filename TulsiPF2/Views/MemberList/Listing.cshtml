@@ -1,0 +1,38 @@
+﻿@* Commented   @model IEnumerable<TulsiPF2.Models.MemberList>  *@
+
+@model TulsiPF2.ViewModels.MemberList_Address
+
+
+@{
+    ViewBag.Title = "MemberList Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    var className = Model.MemberLists.Count > 0 ? "Popular" : null;
+}
+
+@{
+    if (@className == "Popular")
+        {
+        <h2>Popular City : @Model.vmobj.City </h2>
+        }
+        else
+        {
+        < h2 > City : @Model.vmobj.City </ h2 >
+        }
+ }
+
+
+@{
+    if (Model.MemberLists.Count == 0)
+    { <text> no one at this location </text>}
+else
+{
+    foreach (var item in Model.MemberLists)
+    {
+        <h2> Member Name : @item.FirstName @item.LastName </h2>
+    }
+}
+}
