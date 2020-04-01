@@ -41,32 +41,31 @@ namespace TulsiPF2.Controllers
 
                     fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);   // combine full path  and filename
                     tab.ImageFile.SaveAs(fileName);   // to save to full path of the folder
-                 
+
                     db.ImageTabs.Add(tab);
                     db.SaveChanges();
                     ModelState.Clear();
                     MessageBox.Show("Image has been uploaded successfully !!");
-                   
+                    return RedirectToRoute("ImageTabs");
                 }
                 else
-                { 
-                    MessageBox.Show ("Not an Image file - must be JPG, JPEG, PNG only !");
+                {
+                    MessageBox.Show("Not an Image file - must be JPG, JPEG, PNG only !");
+                    return RedirectToRoute("ImageTabs");
                 }
             }
             else
             {
-                MessageBox.Show ("Invalid file, or size is 0 byte ");
+                MessageBox.Show("Invalid file, or size is 0 byte ");
+                return RedirectToRoute("ImageTabs");
             }
 
-            //       return View();
-            //       return RedirectToAction("Home");
-            //       return RedirectToRoute("Home");
-
-                  return RedirectToRoute("ImageTabs");
-
-            //    return Redirect("MemActivities/Home");
-      
         }
+
+         //       return View();
+         //       return RedirectToAction("Home");
+         //       return RedirectToRoute("Home");
+         //       return Redirect("MemActivities/Home");
 
     }
 }

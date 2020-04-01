@@ -12,8 +12,6 @@
         <AssociationConnector Association="TulsiPFModel.FK_DonationTab_Member" ManuallyRouted="false" />
         <AssociationConnector Association="TulsiPFModel.FK_ImageTab_Member" ManuallyRouted="false" />
         <AssociationConnector Association="TulsiPFModel.FK_Member_SexTab" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="TulsiPFModel.ImageTab2" Width="1.5" PointX="7.5" PointY="3.375" />
-        <AssociationConnector Association="TulsiPFModel.FK_ImageTab2_Member" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

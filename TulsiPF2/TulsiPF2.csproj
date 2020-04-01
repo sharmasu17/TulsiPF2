@@ -134,6 +134,7 @@
     <Compile Include="Controllers\ImageTabsController.cs" />
     <Compile Include="Controllers\MemberListController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -142,9 +143,6 @@
       <DependentUpon>TulsiPFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ImageTab.cs">
-      <DependentUpon>TulsiPFModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ImageTab2.cs">
       <DependentUpon>TulsiPFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Member.cs">
@@ -168,6 +166,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TulsiPFModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>UserModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\MemberList_Address.cs" />
     <Compile Include="Models\MemberList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -179,6 +195,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap-journal.css" />
     <Content Include="Content\SureshStylesheet.css" />
+    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -196,6 +213,16 @@
       <DependentUpon>TulsiPFModel.edmx</DependentUpon>
       <LastGenOutput>TulsiPFModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\UserModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UserModel.edmx</DependentUpon>
+      <LastGenOutput>UserModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\UserModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UserModel.edmx</DependentUpon>
+      <LastGenOutput>UserModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\TulsiPFModel.edmx">
@@ -204,6 +231,13 @@
     </EntityDeploy>
     <Content Include="Models\TulsiPFModel.edmx.diagram">
       <DependentUpon>TulsiPFModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\UserModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UserModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\UserModel.edmx.diagram">
+      <DependentUpon>UserModel.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\TulsiPF2 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\TulsiPF2 - ReadOnly - FTP.pubxml" />
@@ -250,6 +284,7 @@
     <Content Include="Views\ImageTabs\Details.cshtml" />
     <Content Include="Views\ImageTabs\Edit.cshtml" />
     <Content Include="Views\ImageTabs\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -275,7 +310,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Image\favicon.ico</ApplicationIcon>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

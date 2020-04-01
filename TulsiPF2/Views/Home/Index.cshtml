@@ -1,5 +1,10 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+
+   // if ( Session ["UserID"] == null)
+   // {
+   //     Response.Redirect("~/User/Index");
+   // }
 }
 
 <div class="jumbotron">
@@ -9,7 +14,15 @@
 <div class="row">
     <div class="col-md-4">
         <p>Member Donation: Add, Change, Delete Members</p>
-       @* <h2>@Html.ActionLink("Donation","Index","MemberTabs") </h2> *@
+        <p>Member Dashboard</p>
+        @if (Session ["UserID"] != null)
+        {
+           <h3>UserName : @(Session["UserName"]).ToString()</h3>
+        }
+  
+
+        <a href="@Url.Action("LogOut", "User")">Logout </a>
+
     </div>
 
 
