@@ -26,14 +26,6 @@
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="ImageTab2">
-          <Key>
-            <PropertyRef Name="ImageId2" />
-          </Key>
-          <Property Name="ImageId2" Type="int" Nullable="false" />
-          <Property Name="ImageTitle2" Type="varchar" MaxLength="200" />
-          <Property Name="ImagePath2" Type="varchar(max)" />
-        </EntityType>
         <EntityType Name="Member">
           <Key>
             <PropertyRef Name="MemberId" />
@@ -87,18 +79,6 @@ warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ImageTab2_Member">
-          <End Role="Member" Type="Self.Member" Multiplicity="1" />
-          <End Role="ImageTab2" Type="Self.ImageTab2" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Member">
-              <PropertyRef Name="MemberId" />
-            </Principal>
-            <Dependent Role="ImageTab2">
-              <PropertyRef Name="ImageId2" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Member_SexTab">
           <End Role="SexTab" Type="Self.SexTab" Multiplicity="1" />
           <End Role="Member" Type="Self.Member" Multiplicity="*" />
@@ -116,13 +96,6 @@ warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key
           <EntitySet Name="ImageTab" EntityType="Self.ImageTab" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SexTab" EntityType="Self.SexTab" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ImageTab2" EntityType="Self.ImageTab2" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [ImageTab2].[ImageId2] AS [ImageId2], 
-    [ImageTab2].[ImageTitle2] AS [ImageTitle2], 
-    [ImageTab2].[ImagePath2] AS [ImagePath2]
-    FROM [dbo].[ImageTab2] AS [ImageTab2]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_DonationTab_Member" Association="Self.FK_DonationTab_Member">
             <End Role="Member" EntitySet="Member" />
             <End Role="DonationTab" EntitySet="DonationTab" />
@@ -130,10 +103,6 @@ warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key
           <AssociationSet Name="FK_ImageTab_Member" Association="Self.FK_ImageTab_Member">
             <End Role="Member" EntitySet="Member" />
             <End Role="ImageTab" EntitySet="ImageTab" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ImageTab2_Member" Association="Self.FK_ImageTab2_Member">
-            <End Role="Member" EntitySet="Member" />
-            <End Role="ImageTab2" EntitySet="ImageTab2" />
           </AssociationSet>
           <AssociationSet Name="FK_Member_SexTab" Association="Self.FK_Member_SexTab">
             <End Role="SexTab" EntitySet="SexTab" />
@@ -185,7 +154,6 @@ warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key
           <NavigationProperty Name="DonationTabs" Relationship="Self.FK_DonationTab_Member" FromRole="Member" ToRole="DonationTab" />
           <NavigationProperty Name="ImageTabs" Relationship="Self.FK_ImageTab_Member" FromRole="Member" ToRole="ImageTab" />
           <NavigationProperty Name="SexTab" Relationship="Self.FK_Member_SexTab" FromRole="Member" ToRole="SexTab" />
-          <NavigationProperty Name="ImageTab2" Relationship="TulsiPFModel.FK_ImageTab2_Member" FromRole="Member" ToRole="ImageTab2" />
         </EntityType>
         <EntityType Name="SexTab">
           <Key>
@@ -252,33 +220,7 @@ warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key
             <End Role="SexTab" EntitySet="SexTabs" />
             <End Role="Member" EntitySet="Members" />
           </AssociationSet>
-          <EntitySet Name="ImageTab2" EntityType="TulsiPFModel.ImageTab2" />
-          <AssociationSet Name="FK_ImageTab2_Member" Association="TulsiPFModel.FK_ImageTab2_Member">
-            <End Role="Member" EntitySet="Members" />
-            <End Role="ImageTab2" EntitySet="ImageTab2" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="ImageTab2">
-          <Key>
-            <PropertyRef Name="ImageId2" />
-          </Key>
-          <Property Name="ImageId2" Type="Int32" Nullable="false" />
-          <Property Name="ImageTitle2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="ImagePath2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Member" Relationship="TulsiPFModel.FK_ImageTab2_Member" FromRole="ImageTab2" ToRole="Member" />
-        </EntityType>
-        <Association Name="FK_ImageTab2_Member">
-          <End Type="TulsiPFModel.Member" Role="Member" Multiplicity="1" />
-          <End Type="TulsiPFModel.ImageTab2" Role="ImageTab2" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Member">
-              <PropertyRef Name="MemberId" />
-            </Principal>
-            <Dependent Role="ImageTab2">
-              <PropertyRef Name="ImageId2" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -330,15 +272,6 @@ warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key
               <MappingFragment StoreEntitySet="SexTab">
                 <ScalarProperty Name="SexCode" ColumnName="SexCode" />
                 <ScalarProperty Name="SexDesc" ColumnName="SexDesc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ImageTab2">
-            <EntityTypeMapping TypeName="TulsiPFModel.ImageTab2">
-              <MappingFragment StoreEntitySet="ImageTab2">
-                <ScalarProperty Name="ImagePath2" ColumnName="ImagePath2" />
-                <ScalarProperty Name="ImageTitle2" ColumnName="ImageTitle2" />
-                <ScalarProperty Name="ImageId2" ColumnName="ImageId2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

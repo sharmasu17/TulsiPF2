@@ -40,6 +40,5 @@ namespace TulsiPF2.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ImageTab> ImageTabs { get; set; }
         public virtual SexTab SexTab { get; set; }
-        public virtual ImageTab2 ImageTab2 { get; set; }
     }
 }

@@ -43,7 +43,19 @@ namespace TulsiPF2
              name: "ImageTabs",
              url: "ImageTabs/AddImage/{id}",
              defaults: new { controller = "ImageTabs", action = "AddImage", id = UrlParameter.Optional }
-           );
+            );
+
+            routes.MapRoute(
+            name: "User",
+            url: "User/Index/{id}",
+            defaults: new { controller = "User", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+            name: "Login",
+            url: "User/Authorize/{id}",
+            defaults: new { controller = "User", action = "Authorize", id = UrlParameter.Optional }
+            );
 
             routes.MapRoute(
               name: "Home",

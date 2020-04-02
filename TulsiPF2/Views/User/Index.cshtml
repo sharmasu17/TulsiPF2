@@ -1,0 +1,74 @@
+﻿@model TulsiPF2.Models.User
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<!DOCTYPE html>
+
+<h2>Login</h2>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/> 
+    <title> Login </title>
+
+</head>
+<body>
+    <div id="login=div">
+        @using (Html.BeginForm("Index" , "User", FormMethod.Post))
+
+        {
+        <table>
+            <tr>
+                <td></td>
+                <td style="text-decoration:underline"></td>
+            </tr>
+
+            <tr>
+                <td>@Html.LabelFor(model => model.UserName)</td>
+                <td>@Html.EditorFor(model => model.UserName) </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>@Html.ValidationMessageFor(model => model.UserName)</td>
+            </tr>
+
+            <tr>
+                <td>@Html.LabelFor(model => model.UserPassword)</td>
+                <td>@Html.EditorFor(model => model.UserPassword) </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage) </label>
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>@Html.ValidationMessageFor(model => model.UserPassword)</td>
+            </tr>
+
+
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" name="name" value="Login" />
+                    <input type="reset" name="name" value="Clear" />
+                </td>
+            </tr>
+
+        </table>
+
+
+        }
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+
+
+</html>
