@@ -17,20 +17,31 @@
 
     function checkselected()
     {
-        if ($('#Memberdata').val() == '1')
-        {
+
+        if ($('#Memberdata').val() == '1') {
+            document.location.href = '/Home/MemActivities';
+        }
+        
+        if ($('#Memberdata').val() == '2')   {
             document.location.href = '/Members/Index';
         }
 
-        if ($('#Memberdata').val() == '2')
-        {
+        if ($('#Memberdata').val() == '3')  {
             document.location.href = '/DonationTabs/Index';
         }
 
-        if ($('#Memberdata').val() == '3')
-        {
+        if ($('#Memberdata').val() == '4')  {
             document.location.href = '/ImageTabs/AddImage';
         }
-        
+
+        if ($('#Memberdata').val() == '5')  {
+            document.location.href = '/MemberList/Listing';
+        }
+
+        if ($('#Memberdata').val() == '9')  {
+            document.location.href = '/User/LogOut';
+        }
+
+
     }
 </script>

@@ -285,6 +285,7 @@
     <Content Include="Views\ImageTabs\Edit.cshtml" />
     <Content Include="Views\ImageTabs\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Home\MemListing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

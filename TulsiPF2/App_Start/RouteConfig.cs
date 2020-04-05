@@ -15,52 +15,51 @@ namespace TulsiPF2
 
 
             routes.MapRoute(
-               name: "MemberList",
-               url: "{MemberList}",
-               defaults: new { controller = "MemberList", action = "List" }
+                 name: "MemberActivities",
+                 url: "Home/MemActivities/{id}",
+                 defaults: new { controller = "Home", action = "MemActvities" }
             );
 
             routes.MapRoute(
-              name: "MemberActivities",
-              url: "Home/MemActivities/{id}",
-              defaults: new { controller = "MemberList", action = "List" }
-            );
-
-
-            routes.MapRoute(
-              name: "DonationTabs",
-              url: "DonationTabs/index",
-              defaults: new { controller = "DonationTabs", action = "Index" }
-            );
+                 name: "MemberListing",
+                 url: "Home/MemListing/{id}",
+                 defaults: new { controller = "Home", action = "MemListing" }
+               );
 
             routes.MapRoute(
-              name: "MemberDetails",
-              url: "Members/index/{id}",
-              defaults: new { controller = "Members", action = "Index", id = UrlParameter.Optional }
+                 name: "DonationTabs",
+                 url: "DonationTabs/index",
+                 defaults: new { controller = "DonationTabs", action = "Index" }
+            );
+
+            routes.MapRoute(
+                 name: "MemberDetails",
+                 url: "Members/index/{id}",
+                 defaults: new { controller = "Members", action = "Index", id = UrlParameter.Optional }
             );
 
            routes.MapRoute(
-             name: "ImageTabs",
-             url: "ImageTabs/AddImage/{id}",
-             defaults: new { controller = "ImageTabs", action = "AddImage", id = UrlParameter.Optional }
+                name: "ImageTabs",
+                url: "ImageTabs/AddImage/{id}",
+                defaults: new { controller = "ImageTabs", action = "AddImage", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
-            name: "User",
-            url: "User/Index/{id}",
-            defaults: new { controller = "User", action = "Index", id = UrlParameter.Optional }
+                name: "User",
+                url: "User/Index/{id}",
+                defaults: new { controller = "User", action = "Index", id = UrlParameter.Optional }
+                );
+
+            routes.MapRoute(
+                name: "Login",
+                url: "User/Authorize/{id}",
+                defaults: new { controller = "User", action = "Authorize", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
-            name: "Login",
-            url: "User/Authorize/{id}",
-            defaults: new { controller = "User", action = "Authorize", id = UrlParameter.Optional }
-            );
-
-            routes.MapRoute(
-              name: "Home",
-              url: "",
-              defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                  name: "Home",
+                  url: "",
+                  defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
