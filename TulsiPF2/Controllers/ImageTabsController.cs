@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Windows;
 using TulsiPF2.Models;
-using TulsiPF2.ViewModels;
+//using TulsiPF2.ViewModels;
 
 namespace TulsiPF2.Controllers
 {

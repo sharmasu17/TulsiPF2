@@ -10,7 +10,7 @@ namespace TulsiPF2.Controllers
 {
     public class UserController : Controller
     {
-     //   private TulsiPFModels db = new TulsiPFModels();
+        //   private TulsiPFModels db = new TulsiPFModels();
 
         // GET: User
         [HttpGet]
@@ -30,18 +30,26 @@ namespace TulsiPF2.Controllers
                 if (userdetails == null)
                 {
                     user.LoginErrorMessage = "Wrong User Name or Password";
-                    return View("Index", user);                
+                    return View("Index", user);
+                }
+                else if (userdetails.IsAdmin == "Y")
+                {
+                    Session["UserId"] = userdetails.UserID;    // valid user and storing Userid to session for timeout
+                    Session["UserName"] = userdetails.UserName;
+                    Session["IsAdmin"] = userdetails.IsAdmin;
+                    return RedirectToAction("MemActivities", "Home");
                 }
                 else
                 {
                     Session["UserId"] = userdetails.UserID;    // valid user and storing Userid to session for timeout
                     Session["UserName"] = userdetails.UserName;
-                    return RedirectToAction("Index", "Home");
-
+                    return RedirectToAction("MemListing", "Home");
                 }
+
             }
         }
-
+    
+ 
         public ActionResult LogOut()
         {
             Session.Abandon();

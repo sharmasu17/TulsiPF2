@@ -39,23 +39,46 @@ namespace TulsiPF2.Controllers
 
         public ActionResult MemActivities()
         {
-
             List<SelectListItem> Items = new List<SelectListItem> ();
-            SelectListItem item1 = new SelectListItem() { Text = "Select Options", Value = "0", Selected = true };
-            SelectListItem item2 = new SelectListItem() { Text = "Member Profile", Value = "1", Selected = false };
-            SelectListItem item3 = new SelectListItem() { Text = "Member Donation", Value = "2", Selected = false };
-            SelectListItem item4 = new SelectListItem() { Text = "Upload Member Image", Value = "3", Selected = false };
+            SelectListItem item1 = new SelectListItem() { Text = "Select Options", Value = "1", Selected = true };
+            SelectListItem item2 = new SelectListItem() { Text = "Member Profile", Value = "2", Selected = false };
+            SelectListItem item3 = new SelectListItem() { Text = "Member Donation", Value = "3", Selected = false };
+            SelectListItem item4 = new SelectListItem() { Text = "Upload Member Image", Value = "4", Selected = false };
+            SelectListItem item5 = new SelectListItem() { Text = "Member Listing", Value = "5", Selected = false };
+            SelectListItem item6 = new SelectListItem() { Text = "Logout", Value = "9", Selected = false };
 
             Items.Add(item1);
             Items.Add(item2);
             Items.Add(item3);
             Items.Add(item4);
-
+            Items.Add(item5);
+            Items.Add(item6);
 
             ViewBag.Memberdata = Items;
 
             return View();
         }
+
+
+        public ActionResult MemListing()
+        {
+            List<SelectListItem> Items = new List<SelectListItem>();
+            SelectListItem item1 = new SelectListItem() { Text = "Select Options", Value = "1", Selected = true };
+            SelectListItem item2 = new SelectListItem() { Text = "Member Listing", Value = "2", Selected = false };
+            SelectListItem item3 = new SelectListItem() { Text = "Logout", Value = "9", Selected = false };
+
+            Items.Add(item1);
+            Items.Add(item2);
+            Items.Add(item3);
+            
+
+            ViewBag.Memberdata = Items;
+
+            return View();
+        }
+
+
+
 
 
     }

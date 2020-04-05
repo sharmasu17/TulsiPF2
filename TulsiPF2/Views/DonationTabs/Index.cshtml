@@ -27,26 +27,29 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Donation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DonationDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DonationDetail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Member.FirstName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.DonationId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.DonationId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.DonationId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Donation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonationDetail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member.FirstName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.DonationId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.DonationId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.DonationId })
+            </td>
+        </tr>
 
+    }
+ 
 </table>
+@Html.ActionLink("Go Back", "MemActivities", "Home");
