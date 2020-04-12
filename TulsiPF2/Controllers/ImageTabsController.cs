@@ -17,6 +17,7 @@ namespace TulsiPF2.Controllers
     {
         private TulsiPFModels db = new TulsiPFModels();
 
+
         [HttpGet]
         public ActionResult AddImage()
         {
@@ -37,10 +38,10 @@ namespace TulsiPF2.Controllers
                 {
                     string fileName = Path.GetFileNameWithoutExtension(tab.ImageFile.FileName);
                     fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                    tab.ImagePath = "~/Image/" + fileName;   // saving virtual path to table column
+                    tab.ImagePath = "~/Image/" + fileName;   // saving table column
 
-                    fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);   // combine full path  and filename
-                    tab.ImageFile.SaveAs(fileName);   // to save to full path of the folder
+                    fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);  
+                    tab.ImageFile.SaveAs(fileName);   // to save with full path of the folder
 
                     db.ImageTabs.Add(tab);
                     db.SaveChanges();
@@ -62,10 +63,19 @@ namespace TulsiPF2.Controllers
 
         }
 
-         //       return View();
-         //       return RedirectToAction("Home");
-         //       return RedirectToRoute("Home");
-         //       return Redirect("MemActivities/Home");
+
+        public ActionResult DisplayImage(int memid)
+        {
+            List<ImageTab> imagepath = db.ImageTabs.Where(img => img.MemberId == memid).ToList();
+            return View(imagepath);
+        }
+
+
+
+        //       return View();
+        //       return RedirectToAction("Home");
+        //       return RedirectToRoute("Home");
+        //       return Redirect("MemActivities/Home");
 
     }
 }

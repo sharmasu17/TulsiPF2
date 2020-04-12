@@ -1,0 +1,62 @@
+﻿@model IEnumerable<TulsiPF2.Models.ImageTab>
+
+@{
+    ViewBag.Title = "Display Image";
+}
+
+<h2>DisplayImage</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageTitle)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Member.FirstName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+
+        <th>Pictures</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ImageTitle)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Member.FirstName)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.ImagePath)
+    </td>
+
+    <td>
+        <div>
+            @if (item.ImagePath != null)
+            {
+                <img style="width:200px; height:200px" src="@Url.Content(item.ImagePath)" />
+            }
+        </div>
+       
+    </td>
+
+</tr>
+    }
+
+</table>
+
+
+@{
+
+    @Html.ActionLink("Go Back", "MemberImageListing", "MemberList")
+
+}

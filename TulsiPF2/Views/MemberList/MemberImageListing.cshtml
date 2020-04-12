@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Member>
+@using TulsiPF2.Models;
+@{
+    ViewBag.Title = "MemberImageListing";
+}
+
+<h2>Member Image Listing</h2>
+<div class="container" style="width:60%; margin-top:2%"> </div>
+
+@if (Model != null)
+{
+    <table>
+        <tr>
+            <th>Mem-Id</th>
+            <th>FName </th>
+            <th>LName </th>
+            <th>Profile </th>
+            <th>Sex</th>
+        </tr>
+
+        <tbody>
+            @foreach (Member Members in @Model)
+            {
+                <tr>
+                    <td>@Members.MemberId  </td>
+                    <td>@Members.FirstName  </td>
+                    <td>@Members.LastName  </td>
+                    <td>
+                        <style>
+                            .editor-multiline-field {
+                                width: 300px;
+                                height: 100px;
+                            }
+                        </style>
+                        <div class="editor-multiline-field">  @Members.Profile  </div>
+                    </td>
+                    <td>
+                        <ul>
+                        
+                                @if (Members.FirstName == null || Members.FirstName == "")
+                                {   
+                                    <li> Null Name </li>
+                                }
+                                else
+                                { 
+                                    <li>@Html.ActionLink(Members.FirstName, "DisplayImage", "ImageTabs", new { memid = Members.MemberId }, null); </li>
+                                }
+                          
+                                
+                            </ul>
+                        </td>
+                        <td>@Members.Sex  </td>
+                    </tr>
+                }
+        </tbody>
+
+    </table>
+}
+
+@{
+
+    if (@Session["IsAdmin"] != null)
+    {
+        @Html.ActionLink("Go Back", "MemActivities", "Home")
+    }
+    else
+    {
+        @Html.ActionLink("Go Back", "MemListing", "Home")
+    }
+
+}

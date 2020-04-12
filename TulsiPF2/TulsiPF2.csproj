@@ -184,6 +184,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UserModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\MemberImageModel.cs" />
     <Compile Include="ViewModels\MemberList_Address.cs" />
     <Compile Include="Models\MemberList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -200,7 +201,11 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="ImageLogo\favicon.ico" />
+    <Content Include="ImageLogo\TulsiF.jpg" />
+    <Content Include="ImageLogo\TulsiF2.jpg" />
+    <Content Include="ImageLogo\TulsiF3.jpg" />
     <Content Include="ImageLogo\Tulsijpg.jpg" />
+    <Content Include="Image\EKAL202738636.jpg" />
     <Content Include="Image\favicon.ico" />
     <Content Include="Image\Tulsijpg.jpg" />
     <Content Include="Models\TulsiPFModel.Context.tt">
@@ -286,6 +291,8 @@
     <Content Include="Views\ImageTabs\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Home\MemListing.cshtml" />
+    <Content Include="Views\MemberList\MemberImageListing.cshtml" />
+    <Content Include="Views\ImageTabs\DisplayImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
