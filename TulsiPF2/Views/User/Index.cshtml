@@ -6,53 +6,55 @@
 
 <!DOCTYPE html>
 
-<h2>Login</h2>
+<h3>Login</h3>
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width"/> 
+    <meta name="viewport" content="width=device-width" />
     <title> Login </title>
 
 </head>
 <body>
     <div id="login=div">
-        @using (Html.BeginForm("Index" , "User", FormMethod.Post))
+        @using (Html.BeginForm("Index", "User", FormMethod.Post))
 
         {
-        <table>
+        <table style="list-style-type:circle">
             <tr>
-                <td></td>
                 <td style="text-decoration:underline"></td>
-            </tr>
-
-            <tr>
-                <td>@Html.LabelFor(model => model.UserName)</td>
-                <td>@Html.EditorFor(model => model.UserName) </td>
-            </tr>
-
-            <tr>
                 <td></td>
-                <td>@Html.ValidationMessageFor(model => model.UserName)</td>
             </tr>
 
             <tr>
-                <td>@Html.LabelFor(model => model.UserPassword)</td>
-                <td>@Html.EditorFor(model => model.UserPassword) </td>
+                <td style="richness:80">@Html.LabelFor(model => model.UserName)</td>
+                <td>&ensp;&ensp;&ensp;</td>
+                <td>@Html.EditorFor(model => model.UserName) </td>
+                <td>&ensp;&ensp;&ensp;</td>
+                <td style="flood-color:brown">@Html.ValidationMessageFor(model => model.UserName)</td>
             </tr>
+ 
             <tr>
-                <td colspan="2">
-                <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage) </label>
+                <td style="richness:80">@Html.LabelFor(model => model.UserPassword)</td>
+                <td>&ensp;&ensp;&ensp;</td>
+                <td>@Html.EditorFor(model => model.UserPassword) </td>
+                <td>&ensp;&ensp;&ensp;</td>
+                <td style="flood-color:brown">@Html.ValidationMessageFor(model => model.UserPassword)</td>
+            </tr>
+            <tr> <td>&ensp;</td></tr>
+                   
+            <tr>
+                <td>&ensp;&ensp;</td>
+                <td>&ensp;&ensp;</td>
+                <td>
+                    <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage) </label>
                 </td>
             </tr>
 
-            <tr>
-                <td></td>
-                <td>@Html.ValidationMessageFor(model => model.UserPassword)</td>
-            </tr>
+            <tr> <td>&ensp;</td></tr>
 
 
             <tr>
-                <td></td>
+                <td colspan="2"></td>
                 <td>
                     <input type="submit" name="name" value="Login" />
                     <input type="reset" name="name" value="Clear" />
@@ -60,8 +62,6 @@
             </tr>
 
         </table>
-
-
         }
     </div>
 

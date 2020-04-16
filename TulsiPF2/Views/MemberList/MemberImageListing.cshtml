@@ -1,11 +1,9 @@
 ﻿@model IEnumerable<Member>
 @using TulsiPF2.Models;
 @{
-    ViewBag.Title = "MemberImageListing";
+    ViewBag.Title = "Member Profile and Details Listing";
 }
 
-<h2>Member Image Listing</h2>
-<div class="container" style="width:60%; margin-top:2%"> </div>
 
 @if (Model != null)
 {
@@ -15,7 +13,7 @@
             <th>FName </th>
             <th>LName </th>
             <th>Profile </th>
-            <th>Sex</th>
+
         </tr>
 
         <tbody>
@@ -28,7 +26,7 @@
                     <td>
                         <style>
                             .editor-multiline-field {
-                                width: 300px;
+                                width: 150px;
                                 height: 100px;
                             }
                         </style>
@@ -36,36 +34,20 @@
                     </td>
                     <td>
                         <ul>
-                        
-                                @if (Members.FirstName == null || Members.FirstName == "")
-                                {   
-                                    <li> Null Name </li>
-                                }
-                                else
-                                { 
-                                    <li>@Html.ActionLink(Members.FirstName, "DisplayImage", "ImageTabs", new { memid = Members.MemberId }, null); </li>
-                                }
-                          
-                                
-                            </ul>
-                        </td>
-                        <td>@Members.Sex  </td>
-                    </tr>
-                }
+                            @if (Members.FirstName == null || Members.FirstName == "")
+                            {
+                                <li> Null Name </li>
+                            }
+                            else
+                            {
+                                <li>@Html.ActionLink(Members.FirstName, "DisplayImage", "MemberList", new { memid = Members.MemberId }, null); </li>
+                            }
+                        </ul>
+                    </td>
+
+                </tr>
+            }
         </tbody>
 
     </table>
-}
-
-@{
-
-    if (@Session["IsAdmin"] != null)
-    {
-        @Html.ActionLink("Go Back", "MemActivities", "Home")
-    }
-    else
-    {
-        @Html.ActionLink("Go Back", "MemListing", "Home")
-    }
-
 }

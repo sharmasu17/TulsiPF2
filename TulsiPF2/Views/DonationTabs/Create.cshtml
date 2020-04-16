@@ -5,13 +5,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+
+<table class="table" align="center">
+    <tr>
+       <td> <h4>Create</h4>   </td>
+       <td> <h4 style="font-size:medium">@Html.ActionLink("Go Back", "Index", "DonationTabs") </h4></td>
+    </tr>
+</table>
 
 
-@using (Html.BeginForm()) 
+
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>DonationTab</h4>
         <hr />

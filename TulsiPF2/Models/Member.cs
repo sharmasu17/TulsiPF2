@@ -34,7 +34,7 @@ namespace TulsiPF2.Models
         [MaxLength(1)]
         [Required]
         public string Sex { get; set; }
-        [MaxLength(50)]
+        [MaxLength(15)]
         public string Phone { get; set; }
         [DataType (DataType.EmailAddress)]
         public string Email { get; set; }
@@ -59,6 +59,8 @@ namespace TulsiPF2.Models
         public virtual ICollection<DonationTab> DonationTabs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ImageTab> ImageTabs { get; set; }
+
+        [DisplayName("Sex")]
         public virtual SexTab SexTab { get; set; }
     }
 }

@@ -138,7 +138,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Address.cs" />
     <Compile Include="Models\DonationTab.cs">
       <DependentUpon>TulsiPFModel.tt</DependentUpon>
     </Compile>
@@ -184,9 +183,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UserModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\MemberImageModel.cs" />
     <Compile Include="ViewModels\MemberList_Address.cs" />
-    <Compile Include="Models\MemberList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -292,7 +289,8 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Home\MemListing.cshtml" />
     <Content Include="Views\MemberList\MemberImageListing.cshtml" />
-    <Content Include="Views\ImageTabs\DisplayImage.cshtml" />
+    <Content Include="Views\MemberList\DisplayImage.cshtml" />
+    <Content Include="Views\MemberList\MemberProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

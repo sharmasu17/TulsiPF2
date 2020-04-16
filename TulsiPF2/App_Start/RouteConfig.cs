@@ -56,13 +56,11 @@ namespace TulsiPF2
                 defaults: new { controller = "User", action = "Authorize", id = UrlParameter.Optional }
             );
 
-
             routes.MapRoute(
-                name: "MemberImage",
-                url: "MemberList/MemberImageListing/{id}",
-                defaults: new { controller = "MemberList", action = "MemberImageListing", id = UrlParameter.Optional }
-            );
-
+               name: "MemberProfile",
+               url: "MemberList/MemberProfile/{id}",
+               defaults: new { controller = "MemberList", action = "MemberProfile", id = UrlParameter.Optional }
+           );
 
             routes.MapRoute(
                   name: "Home",

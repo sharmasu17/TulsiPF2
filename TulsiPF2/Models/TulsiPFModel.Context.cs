@@ -32,6 +32,5 @@ namespace TulsiPF2.Models
         public virtual DbSet<ImageTab> ImageTabs { get; set; }
         public virtual DbSet<Member> Members { get; set; }
         public virtual DbSet<SexTab> SexTabs { get; set; }
-        public virtual DbSet<MemberImageModel> MemberImageModels { get; set; }
-    }
+        }
 }

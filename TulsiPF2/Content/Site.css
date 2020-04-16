@@ -27,7 +27,27 @@ textarea {
 
 .editor-multiline-field textarea {
     max-width: 500px;
-    width: 300px;
+    width: 200px;
     height: 200px;
 }
-    */
+  */
+
+/* Web Grid style*/
+
+.gridtable thead,
+.gridtable thead a:link,
+.gridtable thead a:hover,
+.gridtable thead a:visited,
+.gridtable header  {
+color:brown;
+text-align:center;
+background-color:cadetblue
+}
+
+.gridtable {
+    width: 100%;
+}
+
+.gridtable-alt {
+    background-color:bisque
+}

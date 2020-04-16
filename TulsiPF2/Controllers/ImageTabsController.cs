@@ -64,11 +64,7 @@ namespace TulsiPF2.Controllers
         }
 
 
-        public ActionResult DisplayImage(int memid)
-        {
-            List<ImageTab> imagepath = db.ImageTabs.Where(img => img.MemberId == memid).ToList();
-            return View(imagepath);
-        }
+      
 
 
 
