@@ -17,20 +17,6 @@ namespace TulsiPF2.Controllers
             return View(members.ToList());
         }
 
-        // not in use
-        public ActionResult MemberImageListing()   
-        {
-            List<Member> members = db.Members.ToList();
-             return View(members);
-        }
-
-        // not in use
-        public ActionResult DisplayImage(int memid)  
-        {
-            List<ImageTab> imagepath = db.ImageTabs.Where(img => img.MemberId == memid).ToList();
-            return View(imagepath);
-        }
-
 
         public ActionResult MemberProfile()
         {
@@ -38,6 +24,7 @@ namespace TulsiPF2.Controllers
             return View(imagetab);
         }
 
+       
     }
 
 }

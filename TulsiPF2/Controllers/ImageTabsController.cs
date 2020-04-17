@@ -64,14 +64,50 @@ namespace TulsiPF2.Controllers
         }
 
 
-      
+        // GET: ImageTabs
+        public ActionResult Index()
+        {
+            var imageTabs = db.ImageTabs.Include(i => i.Member);
+            return View(imageTabs.ToList());
+        }
 
 
 
-        //       return View();
-        //       return RedirectToAction("Home");
-        //       return RedirectToRoute("Home");
-        //       return Redirect("MemActivities/Home");
+        // GET: ImageTabs1/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ImageTab imageTab = db.ImageTabs.Find(id);
+            if (imageTab == null)
+            {
+                return HttpNotFound();
+            }
+            return View(imageTab);
+        }
+
+        // POST: ImageTabs/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            ImageTab imageTab = db.ImageTabs.Find(id);
+            db.ImageTabs.Remove(imageTab);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
 
     }
 }

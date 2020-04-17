@@ -22,12 +22,13 @@ namespace TulsiPF2.Models
             this.DonationTabs = new HashSet<DonationTab>();
             this.ImageTabs = new HashSet<ImageTab>();
         }
-    
+
+        [MaxLength(10)]
         public int MemberId { get; set; }
-        [MaxLength(50)]
+        [MaxLength(30)]
         [Required]
         public string FirstName { get; set; }
-        [MaxLength(50)]
+        [MaxLength(30)]
         [Required]
         public string LastName { get; set; }
 

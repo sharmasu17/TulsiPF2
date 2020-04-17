@@ -10,7 +10,7 @@
 
 <table class="table" align="center">
     <tr>
-        <td> <h2>Members Profile </h2></td>
+        <td> <h3>Members Profile </h3></td>
         <td>
             @{
                 if (@Session["IsAdmin"] != null)
@@ -29,17 +29,17 @@
 
 
 <table class="table" style="table-layout:auto" border="1" align="center">
-    <tr style="background-color:cadetblue ">
-        <th style="text-decoration-color:brown">
+    <tr style="background-color:cadetblue">
+        <th>
             @Html.DisplayNameFor(model => model.ImageTitle)
         </th>
-        <th style="text-decoration-color:brown">
+        <th>
             @Html.DisplayNameFor(model => model.Member.FirstName)
         </th>
-        <th style="text-decoration-color:brown">
+        <th>
             @Html.DisplayNameFor(model => model.Member.Profile)
         </th>
-        <th style="text-decoration-color:brown">
+        <th>
             @Html.DisplayNameFor(model => model.ImagePath)
         </th>
 
@@ -48,17 +48,17 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>
+            <td style="vertical-align:middle">
                 @Html.DisplayFor(modelItem => item.ImageTitle)
             </td>
-            <td>
+            <td style="vertical-align:middle">
                 @Html.DisplayFor(modelItem => item.Member.FirstName)
             </td>
-            <td>
+            <td style="vertical-align:middle">
                 <style>
                     .editor-multiline-field {
                         width: 150px;
-                        height: 100px;
+                        height: 150px;
                     }
                 </style>
                 <div class="editor-multiline-field">  @Html.DisplayFor(modelItem => item.Member.Profile)  </div>
@@ -67,7 +67,7 @@
                 <div>
                     @if (item.ImagePath != null)
                     {
-                        <img style="width:100px; height:100px" src="@Url.Content(item.ImagePath)" />
+                        <img style="width:150px; height:150px" src="@Url.Content(item.ImagePath)" />
                     }
                 </div>
             </td>

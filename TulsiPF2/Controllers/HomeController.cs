@@ -41,12 +41,13 @@ namespace TulsiPF2.Controllers
         {
             List<SelectListItem> Items = new List<SelectListItem> ();
             SelectListItem item1 = new SelectListItem() { Text = "Select Options", Value = "1", Selected = true };
-            SelectListItem item2 = new SelectListItem() { Text = "Add/Update/Delete Member Details", Value = "2", Selected = false };
-            SelectListItem item3 = new SelectListItem() { Text = "Add/Update/Delete Member Donation", Value = "3", Selected = false };
+            SelectListItem item2 = new SelectListItem() { Text = "Add/Upd/Del Member Details", Value = "2", Selected = false };
+            SelectListItem item3 = new SelectListItem() { Text = "Add/Upd/Del Member Donation", Value = "3", Selected = false };
             SelectListItem item4 = new SelectListItem() { Text = "Upload Member Picture", Value = "4", Selected = false };
-            SelectListItem item5 = new SelectListItem() { Text = "Member Listing", Value = "5", Selected = false };
-            SelectListItem item6 = new SelectListItem() { Text = "Member Profile", Value = "6", Selected = false };
-            SelectListItem item7 = new SelectListItem() { Text = "Logout", Value = "9", Selected = false };
+            SelectListItem item5 = new SelectListItem() { Text = "Delete Member Picture", Value = "5", Selected = false };
+            SelectListItem item6 = new SelectListItem() { Text = "Member Listing", Value = "6", Selected = false };
+            SelectListItem item7 = new SelectListItem() { Text = "Member Profile", Value = "7", Selected = false };
+            SelectListItem item8 = new SelectListItem() { Text = "Logout", Value = "9", Selected = false };
 
             Items.Add(item1);
             Items.Add(item2);
@@ -55,6 +56,7 @@ namespace TulsiPF2.Controllers
             Items.Add(item5);
             Items.Add(item6);
             Items.Add(item7);
+            Items.Add(item8);
 
 
             ViewBag.Memberdata = Items;

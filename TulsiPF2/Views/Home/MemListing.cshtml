@@ -17,6 +17,8 @@
 
 <script>
 
+    
+
     function checkselected() {
 
         if ($('#Memberdata').val() == '1') {
@@ -24,17 +26,18 @@
         }
 
         if ($('#Memberdata').val() == '2') {
+
             document.location.href = '/MemberList/Listing';
         }
 
 
         if ($('#Memberdata').val() == '3') {
-            document.location.href = '/MemberList/MemberProfile';
+              document.location.href = '/MemberList/MemberProfile';
         }
 
         if ($('#Memberdata').val() == '9') {
             document.location.href = '/User/LogOut';
         }
-      
+
     }
 </script>

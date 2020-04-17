@@ -183,7 +183,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UserModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\MemberList_Address.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -282,18 +281,15 @@
     <Content Include="Views\Members\Edit.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\ImageTabs\AddImage.cshtml" />
-    <Content Include="Views\ImageTabs\Delete.cshtml" />
-    <Content Include="Views\ImageTabs\Details.cshtml" />
-    <Content Include="Views\ImageTabs\Edit.cshtml" />
-    <Content Include="Views\ImageTabs\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Home\MemListing.cshtml" />
-    <Content Include="Views\MemberList\MemberImageListing.cshtml" />
-    <Content Include="Views\MemberList\DisplayImage.cshtml" />
     <Content Include="Views\MemberList\MemberProfile.cshtml" />
+    <Content Include="Views\ImageTabs\Delete.cshtml" />
+    <Content Include="Views\ImageTabs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
