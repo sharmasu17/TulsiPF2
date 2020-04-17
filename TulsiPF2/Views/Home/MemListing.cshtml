@@ -4,7 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Member Data</h2>
+
+@if (Session["UserID"] != null)
+{
+    <h3>Welcome : @(Session["UserName"])</h3>
+}
 
 @Html.DropDownList("Memberdata", null, new { onchange = "checkselected()" })
 
@@ -13,21 +17,27 @@
 
 <script>
 
-    function checkselected()
-    {
+    
+
+    function checkselected() {
 
         if ($('#Memberdata').val() == '1') {
             document.location.href = '/Home/MemListing';
         }
 
-        if ($('#Memberdata').val() == '2')   {
+        if ($('#Memberdata').val() == '2') {
+
             document.location.href = '/MemberList/Listing';
         }
 
-        if ($('#Memberdata').val() == '9')  {
-            document.location.href = '/User/LogOut';
+
+        if ($('#Memberdata').val() == '3') {
+              document.location.href = '/MemberList/MemberProfile';
         }
 
+        if ($('#Memberdata').val() == '9') {
+            document.location.href = '/User/LogOut';
+        }
 
     }
 </script>

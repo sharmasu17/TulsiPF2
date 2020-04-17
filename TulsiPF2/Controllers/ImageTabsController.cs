@@ -17,6 +17,7 @@ namespace TulsiPF2.Controllers
     {
         private TulsiPFModels db = new TulsiPFModels();
 
+
         [HttpGet]
         public ActionResult AddImage()
         {
@@ -37,10 +38,10 @@ namespace TulsiPF2.Controllers
                 {
                     string fileName = Path.GetFileNameWithoutExtension(tab.ImageFile.FileName);
                     fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                    tab.ImagePath = "~/Image/" + fileName;   // saving virtual path to table column
+                    tab.ImagePath = "~/Image/" + fileName;   // saving table column
 
-                    fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);   // combine full path  and filename
-                    tab.ImageFile.SaveAs(fileName);   // to save to full path of the folder
+                    fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);  
+                    tab.ImageFile.SaveAs(fileName);   // to save with full path of the folder
 
                     db.ImageTabs.Add(tab);
                     db.SaveChanges();
@@ -62,10 +63,51 @@ namespace TulsiPF2.Controllers
 
         }
 
-         //       return View();
-         //       return RedirectToAction("Home");
-         //       return RedirectToRoute("Home");
-         //       return Redirect("MemActivities/Home");
+
+        // GET: ImageTabs
+        public ActionResult Index()
+        {
+            var imageTabs = db.ImageTabs.Include(i => i.Member);
+            return View(imageTabs.ToList());
+        }
+
+
+
+        // GET: ImageTabs1/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ImageTab imageTab = db.ImageTabs.Find(id);
+            if (imageTab == null)
+            {
+                return HttpNotFound();
+            }
+            return View(imageTab);
+        }
+
+        // POST: ImageTabs/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            ImageTab imageTab = db.ImageTabs.Find(id);
+            db.ImageTabs.Remove(imageTab);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
 
     }
 }

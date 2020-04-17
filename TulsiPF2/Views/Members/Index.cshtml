@@ -5,13 +5,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<h3>Add Members Details</h3>
+
+
+<table class="table" align="center">
     <tr>
+        <td> <h4> @Html.ActionLink("Create New", "Create")  </h4>  </td>
+        <td> <h4 style="font-size:medium">@Html.ActionLink("Go Back", "MemActivities", "Home") </h4></td>
+    </tr>
+</table>
+
+
+<table class="table table-bordered">
+    <tr style="background-color:cadetblue">
         <th>
             @Html.DisplayNameFor(model => model.FirstName)
         </th>
@@ -48,7 +55,7 @@
         <th>
             @Html.DisplayNameFor(model => model.SexTab.SexDesc)
         </th>
-        <th></th>
+        <th>Action</th>
     </tr>
 
     @foreach (var item in Model)

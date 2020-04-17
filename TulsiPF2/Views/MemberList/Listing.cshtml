@@ -4,139 +4,77 @@
 @{
     ViewBag.Title = "Listing of Members";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    WebGrid grid = new WebGrid(source: Model, canPage: true, canSort: true, rowsPerPage: 4, defaultSort: null);
+
 }
 
-<h2>Listing</h2>
-
-
-<table class="table">
+<table class="table" align="center">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Profile)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MemberSince)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AddLine1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AddLine2)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.State)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Zip)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SexTab.SexDesc)
-        </th>
-        <th></th>
+        <td> <h3>Members Detail </h3></td>
+        <td>
+           @{
+                if (@Session["IsAdmin"] != null)
+                {
+                    <h4 style="font-size:medium">@Html.ActionLink("Go Back", "MemActivities", "Home") </h4>
+                }
+                else
+                {
+                    <h4 style="font-size:medium">@Html.ActionLink("Go Back", "MemListing", "Home") </h4>
+                }
+            }
+        </td>
     </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Profile)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MemberSince)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AddLine1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AddLine2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Zip)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SexTab.SexDesc)
-            </td>
-
-        </tr>
-    }
-
 </table>
 
-@{ 
 
-    if (@Session["IsAdmin"] != null)
-    {
-         @Html.ActionLink("Go Back", "MemActivities", "Home")
-    }
-    else
-    { 
-         @Html.ActionLink("Go Back", "MemListing", "Home")
-    }
+<link href="~/Content/Gridmvc.css" rel="stylesheet" />
+<script src="~/Scripts/gridmvc.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
 
-}
 
-@*
-    @model TulsiPF2.ViewModels.MemberList_Address
-    @{
-        ViewBag.Title = "MemberList Index";
-        Layout = "~/Views/Shared/_Layout.cshtml";
-    }
+<div style="width:100%" class="table table-bordered">
 
-    @{
-        var className = Model.MemberLists.Count > 0 ? "Popular" : null;
-    }
-
-    @{
-        if (@className == "Popular")
+    @grid.GetHtml(
+        tableStyle: "table table-responsive table-bordered gridtable",
+        headerStyle: "gridtable-header",
+        alternatingRowStyle: "gridtable-alt",
+        columns: new[]
         {
-            <h2>Popular City : @Model.vmobj.City </h2>
-        }
-        else
-        {
-            < h2 > City : @Model.vmobj.City </ h2 >
-        }
-     }
+        grid.Column("MemberId", "Id "),
+        grid.Column("FirstName" , "First Name"),
+        grid.Column("LastName" , "Last Name"),
+        grid.Column("Phone" , "Phone"),
+        grid.Column("Email" , "Email"),
+        grid.Column("MemberSince" , "MemberSince"),
+        grid.Column("AddLine1" , "AddLine1"),
+        grid.Column("Addline2" , "AddLine2"),
+        grid.Column("City" , "City"),
+        grid.Column("State" , "State"),
+        grid.Column("Zip" , "Zip"),
+        grid.Column("SexTab.SexDesc", "Sex")
+        })
+</div>
 
-    @{
-        if (Model.MemberLists.Count == 0)
-            { <text> no one at this location </text>}
-        else
-        {
-            foreach (var item in Model.MemberLists)
-            {   <h2> Member Name : @item.FirstName @item.LastName </h2>
+
+<table class="table" align="center">
+    <tr>
+        <td>
+            @{
+
+                if (@Session["IsAdmin"] != null)
+                {
+                    <h4 style="font-size:medium">@Html.ActionLink("Go Back", "MemActivities", "Home") </h4>
+                }
+                else
+                {
+                    <h4 style="font-size:medium">@Html.ActionLink("Go Back", "MemListing", "Home") </h4>
+                }
+
             }
-        }
-    }*@
+        </td>
+    </tr>
+</table>
+
+
+
+

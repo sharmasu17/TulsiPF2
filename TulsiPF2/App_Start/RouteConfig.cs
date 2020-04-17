@@ -57,6 +57,12 @@ namespace TulsiPF2
             );
 
             routes.MapRoute(
+               name: "MemberProfile",
+               url: "MemberList/MemberProfile/{id}",
+               defaults: new { controller = "MemberList", action = "MemberProfile", id = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
                   name: "Home",
                   url: "",
                   defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

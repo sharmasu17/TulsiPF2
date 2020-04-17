@@ -5,42 +5,53 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<table class="table" align="center">
+    <tr>
+        <td> <h3> Member Image List</h3></td>
+        <td> <h4 style="font-size:medium">@Html.ActionLink("Go Back", "MemActivities", "Home") </h4> </td>
+    </tr>
+</table>
+
+
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ImageTitle)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ImagePath)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Member.FirstName)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+        <th>Action</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImagePath)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Member.FirstName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ImageId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ImageId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ImageId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="vertical-align:middle">
+                @Html.DisplayFor(modelItem => item.ImageTitle)
+            </td>
+            <td style="vertical-align:middle">
+                @Html.DisplayFor(modelItem => item.Member.FirstName)
+            </td>
+            <td>
+                <div>
+                    @if (item.ImagePath != null)
+                    {
+                        <img style="width:150px; height:150px" src="@Url.Content(item.ImagePath)" />
+                    }
+                </div>
+            </td>
+
+            <td style="vertical-align:middle">
+                @Html.ActionLink("Delete", "Delete", new { id = item.ImageId })
+            </td>
+        </tr>
+    }
 
 </table>
+
+<h4 style="font-size:medium">@Html.ActionLink("Go Back", "MemActivities", "Home") </h4>

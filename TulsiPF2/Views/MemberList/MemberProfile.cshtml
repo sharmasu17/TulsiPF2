@@ -1,0 +1,97 @@
+﻿@model IEnumerable<TulsiPF2.Models.ImageTab>
+
+@{
+    ViewBag.Title = "DisplayProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+
+<table class="table" align="center">
+    <tr>
+        <td> <h3>Members Profile </h3></td>
+        <td>
+            @{
+                if (@Session["IsAdmin"] != null)
+                {
+                    <h4 style="font-size:medium">@Html.ActionLink("Go Back", "MemActivities", "Home") </h4>
+                }
+                else
+                {
+                    <h4 style="font-size:medium">@Html.ActionLink("Go Back", "MemListing", "Home") </h4>
+                }
+            }
+        </td>
+    </tr>
+</table>
+
+
+
+<table class="table" style="table-layout:auto" border="1" align="center">
+    <tr style="background-color:cadetblue">
+        <th>
+            @Html.DisplayNameFor(model => model.ImageTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member.Profile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="vertical-align:middle">
+                @Html.DisplayFor(modelItem => item.ImageTitle)
+            </td>
+            <td style="vertical-align:middle">
+                @Html.DisplayFor(modelItem => item.Member.FirstName)
+            </td>
+            <td style="vertical-align:middle">
+                <style>
+                    .editor-multiline-field {
+                        width: 150px;
+                        height: 150px;
+                    }
+                </style>
+                <div class="editor-multiline-field">  @Html.DisplayFor(modelItem => item.Member.Profile)  </div>
+            </td>
+            <td>
+                <div>
+                    @if (item.ImagePath != null)
+                    {
+                        <img style="width:150px; height:150px" src="@Url.Content(item.ImagePath)" />
+                    }
+                </div>
+            </td>
+        </tr>
+    }
+</table>
+
+
+
+<table class="table" align="center">
+    <tr>
+
+        <td>
+            @{
+                if (@Session["IsAdmin"] != null)
+                {
+                    <h4 style="font-size:medium">@Html.ActionLink("Go Back", "MemActivities", "Home") </h4>
+                }
+                else
+                {
+                    <h4 style="font-size:medium">@Html.ActionLink("Go Back", "MemListing", "Home") </h4>
+                }
+            }
+        </td>
+    </tr>
+</table>
+
