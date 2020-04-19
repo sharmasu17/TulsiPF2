@@ -16,7 +16,7 @@ namespace TulsiPF2.Models
     
     public partial class TulsiPFModels : DbContext
     {
-        internal IEnumerable<object> Users;
+        //internal IEnumerable<object> Users;
 
         public TulsiPFModels()
             : base("name=TulsiPFModels")

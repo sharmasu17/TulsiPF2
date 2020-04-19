@@ -13,10 +13,10 @@ namespace TulsiPF2.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TulsiPFEntities : DbContext
+    public partial class TulsiPFEntities4 : DbContext
     {
-        public TulsiPFEntities()
-            : base("name=TulsiPFEntities")
+        public TulsiPFEntities4()
+            : base("name=TulsiPFEntities4")
         {
         }
     

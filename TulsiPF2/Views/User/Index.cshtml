@@ -1,4 +1,4 @@
-﻿@model TulsiPF2.Models.User
+﻿@model TulsiPF2.ViewModels.UserLogin
 @{
     ViewBag.Title = "Index";
 }
@@ -6,7 +6,7 @@
 
 <!DOCTYPE html>
 
-<h3>Login</h3>
+<h3 class="text-success">Login</h3>
 
 <html>
 <head>
@@ -32,7 +32,7 @@
                 <td>&ensp;&ensp;&ensp;</td>
                 <td style="flood-color:brown">@Html.ValidationMessageFor(model => model.UserName)</td>
             </tr>
- 
+
             <tr>
                 <td style="richness:80">@Html.LabelFor(model => model.UserPassword)</td>
                 <td>&ensp;&ensp;&ensp;</td>
@@ -41,7 +41,7 @@
                 <td style="flood-color:brown">@Html.ValidationMessageFor(model => model.UserPassword)</td>
             </tr>
             <tr> <td>&ensp;</td></tr>
-                   
+
             <tr>
                 <td>&ensp;&ensp;</td>
                 <td>&ensp;&ensp;</td>
@@ -52,7 +52,6 @@
 
             <tr> <td>&ensp;</td></tr>
 
-
             <tr>
                 <td colspan="2"></td>
                 <td>
@@ -61,13 +60,32 @@
                 </td>
             </tr>
 
+            <tr> <td>&ensp;</td></tr>
+            <tr> <td>&ensp;</td></tr>
+            <tr> <td>&ensp;</td></tr>
         </table>
+
+        <table>
+            <tr>
+                <td class="text-danger"> New User </td>
+                <td>&ensp;&ensp;&ensp;&ensp;</td>
+                <td> <a href="@Url.Action("Registration", "UserRegister")"> <div class="text-success"> Click to Register </div></a></td>
+               
+            </tr>
+
+            
+
+        </table>
+
         }
     </div>
 
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+
 </body>
 
 

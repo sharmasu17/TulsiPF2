@@ -16,8 +16,7 @@ namespace TulsiPF2.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Tulsi Phuloria Foundation";
-            ViewBag.Msg = "Registered 2014 - Soch Badlo Desh Badlega";
-
+           
             return View();
         }
 
