@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Nihal\source\repos\sharmasu17\TulsiPF2\TulsiPF2\Models\UserModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Nihal\source\repos\sharmasu17\TulsiPF2\TulsiPF2\Models\User.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

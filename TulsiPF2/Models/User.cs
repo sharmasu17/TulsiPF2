@@ -11,25 +11,15 @@ namespace TulsiPF2.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class User
     {
         public int UserID { get; set; }
-
-        [DisplayName("User Id  ")]
-        [Required (ErrorMessage="  This field is Required")]
-        
         public string UserName { get; set; }
-
-        [DisplayName("Password  ")]
-        [DataType(DataType.Password)]
-        [Required(ErrorMessage = "  This field is Required")]
         public string UserPassword { get; set; }
-
         public string IsAdmin { get; set; }
-
-        public string LoginErrorMessage { get; set; }
+        public string UserEmail { get; set; }
+        public string UserMobile { get; set; }
+        public Nullable<System.DateTime> UserCreatedDate { get; set; }
     }
 }
