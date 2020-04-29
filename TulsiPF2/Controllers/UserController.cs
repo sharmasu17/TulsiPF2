@@ -1,19 +1,17 @@
 ﻿
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using TulsiPF2.ViewModels;
-
 using TulsiPF2.Models;
+using TulsiPF2.ViewModels;
 
 namespace TulsiPF2.Controllers
 
 {
     public class UserController : Controller
     {
+        private TulsiPFEntities2 db = new TulsiPFEntities2();
        
-        private TulsiPFEntities4 db = new TulsiPFEntities4();
-
-        // GET: User
         [HttpGet]
         public ActionResult Index()
         {
@@ -21,9 +19,9 @@ namespace TulsiPF2.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(UserLogin user)
+        public ActionResult Index(UserLogins user)
         {
-          
+
             {
                 var userdetails = db.Users.Where(a => a.UserName == user.UserName &&    // a.Username denote DB col.
                                                       a.UserPassword == user.UserPassword).FirstOrDefault();
@@ -33,7 +31,7 @@ namespace TulsiPF2.Controllers
                     user.LoginErrorMessage = "Wrong User Name or Password";
                     return View("Index", user);
                 }
- 
+
                 else if (userdetails.IsAdmin == "Y")
                 {
                     Session["UserId"] = userdetails.UserID;    // valid user and storing Userid to session for timeout
@@ -52,8 +50,8 @@ namespace TulsiPF2.Controllers
 
             }
         }
-    
- 
+
+
         public ActionResult LogOut()
         {
             Session.Abandon();

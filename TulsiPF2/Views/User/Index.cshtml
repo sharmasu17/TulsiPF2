@@ -1,4 +1,4 @@
-﻿@model TulsiPF2.ViewModels.UserLogin
+﻿@model TulsiPF2.ViewModels.UserLogins
 @{
     ViewBag.Title = "Index";
 }
@@ -19,63 +19,63 @@
         @using (Html.BeginForm("Index", "User", FormMethod.Post))
 
         {
-        <table style="list-style-type:circle">
-            <tr>
-                <td style="text-decoration:underline"></td>
-                <td></td>
-            </tr>
+            <table style="list-style-type:circle">
+                <tr>
+                    <td style="text-decoration:underline"></td>
+                    <td></td>
+                </tr>
 
-            <tr>
-                <td style="richness:80">@Html.LabelFor(model => model.UserName)</td>
-                <td>&ensp;&ensp;&ensp;</td>
-                <td>@Html.EditorFor(model => model.UserName) </td>
-                <td>&ensp;&ensp;&ensp;</td>
-                <td style="flood-color:brown">@Html.ValidationMessageFor(model => model.UserName)</td>
-            </tr>
+                <tr>
+                    <td style="richness:80">@Html.LabelFor(model => model.UserName)</td>
+                    <td>&ensp;&ensp;&ensp;</td>
+                    <td>@Html.EditorFor(model => model.UserName) </td>
+                    <td>&ensp;&ensp;&ensp;</td>
+                    <td style="flood-color:brown">@Html.ValidationMessageFor(model => model.UserName)</td>
+                </tr>
 
-            <tr>
-                <td style="richness:80">@Html.LabelFor(model => model.UserPassword)</td>
-                <td>&ensp;&ensp;&ensp;</td>
-                <td>@Html.EditorFor(model => model.UserPassword) </td>
-                <td>&ensp;&ensp;&ensp;</td>
-                <td style="flood-color:brown">@Html.ValidationMessageFor(model => model.UserPassword)</td>
-            </tr>
-            <tr> <td>&ensp;</td></tr>
+                <tr>
+                    <td style="richness:80">@Html.LabelFor(model => model.UserPassword)</td>
+                    <td>&ensp;&ensp;&ensp;</td>
+                    <td>@Html.EditorFor(model => model.UserPassword) </td>
+                    <td>&ensp;&ensp;&ensp;</td>
+                    <td style="flood-color:brown">@Html.ValidationMessageFor(model => model.UserPassword)</td>
+                </tr>
+                <tr> <td>&ensp;</td></tr>
 
-            <tr>
-                <td>&ensp;&ensp;</td>
-                <td>&ensp;&ensp;</td>
-                <td>
-                    <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage) </label>
-                </td>
-            </tr>
+                <tr>
+                    <td>&ensp;&ensp;</td>
+                    <td>&ensp;&ensp;</td>
+                    <td>
+                        <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage) </label>
+                    </td>
+                </tr>
 
-            <tr> <td>&ensp;</td></tr>
+                <tr> <td>&ensp;</td></tr>
 
-            <tr>
-                <td colspan="2"></td>
-                <td>
-                    <input type="submit" name="name" value="Login" />
-                    <input type="reset" name="name" value="Clear" />
-                </td>
-            </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td>
+                        <input type="submit" name="name" value="Login" />
+                        <input type="reset" name="name" value="Clear" />
+                    </td>
+                </tr>
 
-            <tr> <td>&ensp;</td></tr>
-            <tr> <td>&ensp;</td></tr>
-            <tr> <td>&ensp;</td></tr>
-        </table>
+                <tr> <td>&ensp;</td></tr>
+                <tr> <td>&ensp;</td></tr>
+                <tr> <td>&ensp;</td></tr>
+            </table>
 
-        <table>
-            <tr>
-                <td class="text-danger"> New User </td>
-                <td>&ensp;&ensp;&ensp;&ensp;</td>
-                <td> <a href="@Url.Action("Registration", "UserRegister")"> <div class="text-success"> Click to Register </div></a></td>
-               
-            </tr>
+            <table>
+                <tr>
+                    <td class="text-danger"> New User </td>
+                    <td>&ensp;&ensp;&ensp;&ensp;</td>
+                    <td> <a href="@Url.Action("Registration", "UsersRegister")"> <div class="text-success"> Click to Register </div></a></td>
 
-            
+                </tr>
 
-        </table>
+
+
+            </table>
 
         }
     </div>

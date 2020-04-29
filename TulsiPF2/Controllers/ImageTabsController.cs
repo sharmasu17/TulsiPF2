@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using System.Windows;
 using TulsiPF2.Models;
@@ -15,7 +12,7 @@ namespace TulsiPF2.Controllers
 {
     public class ImageTabsController : Controller
     {
-        private TulsiPFModels db = new TulsiPFModels();
+        private TulsiPFEntities2 db = new TulsiPFEntities2();
 
 
         [HttpGet]
@@ -25,7 +22,7 @@ namespace TulsiPF2.Controllers
             return View();
         }
 
-      
+
         [HttpPost]
         public ActionResult AddImage(ImageTab tab)
         {
@@ -40,7 +37,7 @@ namespace TulsiPF2.Controllers
                     fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
                     tab.ImagePath = "~/Image/" + fileName;   // saving table column
 
-                    fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);  
+                    fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
                     tab.ImageFile.SaveAs(fileName);   // to save with full path of the folder
 
                     db.ImageTabs.Add(tab);

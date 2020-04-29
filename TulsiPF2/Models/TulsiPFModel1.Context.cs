@@ -10,16 +10,13 @@
 namespace TulsiPF2.Models
 {
     using System;
-    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TulsiPFModels : DbContext
+    public partial class TulsiPFEntities2 : DbContext
     {
-        //internal IEnumerable<object> Users;
-
-        public TulsiPFModels()
-            : base("name=TulsiPFModels")
+        public TulsiPFEntities2()
+            : base("name=TulsiPFEntities2")
         {
         }
     
@@ -32,5 +29,6 @@ namespace TulsiPF2.Models
         public virtual DbSet<ImageTab> ImageTabs { get; set; }
         public virtual DbSet<Member> Members { get; set; }
         public virtual DbSet<SexTab> SexTabs { get; set; }
-        }
+        public virtual DbSet<User> Users { get; set; }
+    }
 }

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using TulsiPF2.Models;
 
@@ -12,7 +8,7 @@ namespace TulsiPF2.Controllers
 {
     public class DonationTabsController : Controller
     {
-        private TulsiPFModels db = new TulsiPFModels();
+        private TulsiPFEntities2 db = new TulsiPFEntities2();
 
         // GET: DonationTabs
         public ActionResult Index()

@@ -8,7 +8,7 @@ namespace TulsiPF2.Controllers
 {
     public class MemberListController : Controller
     {
-        private TulsiPFModels db = new TulsiPFModels();
+        private TulsiPFEntities2 db = new TulsiPFEntities2();
 
         // GET: Members
         public ActionResult Listing()
@@ -24,7 +24,7 @@ namespace TulsiPF2.Controllers
             return View(imagetab);
         }
 
-       
+
     }
 
 }

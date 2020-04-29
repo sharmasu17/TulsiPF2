@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace TulsiPF2.ViewModels
 {
-    
-    public partial class UserRegistration
-       {
-        
+
+    public partial class UserRegistrations
+    {
+
         public int UserID { get; set; }
 
         [DisplayName("User Id")]
@@ -33,6 +29,6 @@ namespace TulsiPF2.ViewModels
 
         [DisplayName("Mobile (Opt)")]
         public string UserMobile { get; set; }
-    
-        }
+
+    }
 }
