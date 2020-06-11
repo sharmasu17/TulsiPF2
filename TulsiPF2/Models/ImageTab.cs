@@ -6,6 +6,7 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+
 namespace TulsiPF2.Models
 {
     using System;
@@ -18,7 +19,7 @@ namespace TulsiPF2.Models
     {
         public int ImageId { get; set; }
 
-       
+
         [DisplayName("Title")]
         [MaxLength(20)]
         public string ImageTitle { get; set; }
@@ -32,3 +33,4 @@ namespace TulsiPF2.Models
         public HttpPostedFileBase ImageFile { get; set; }
     }
 }
+

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using TulsiPF2.Models;
 
@@ -12,14 +8,35 @@ namespace TulsiPF2.Controllers
 {
     public class MembersController : Controller
     {
-        private TulsiPFModels db = new TulsiPFModels();
+        public TulsiPFEntities2 db = new TulsiPFEntities2();
 
         // GET: Members
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    var members = db.Members.Include(m => m.SexTab);
+        //    return View(members.ToList());
+        //}
+
+        public ActionResult Index(string searchBy, string search)
         {
             var members = db.Members.Include(m => m.SexTab);
-            return View(members.ToList());
+
+            if (searchBy == "LastName")
+            {
+                return View(members.Where(x => x.LastName.StartsWith(search) || search == null).ToList());
+            }
+            else if (searchBy == "State")
+            {
+                return View(members.Where(x => x.State.StartsWith(search) || search == null).ToList());
+            }
+            else
+            {
+                return View(members.Where(x => x.City.StartsWith(search) || search == null).ToList());
+            }
+
         }
+
+
 
         // GET: Members/Details/5
         public ActionResult Details(int? id)
@@ -130,3 +147,4 @@ namespace TulsiPF2.Controllers
         }
     }
 }
+

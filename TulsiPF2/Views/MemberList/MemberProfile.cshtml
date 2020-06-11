@@ -27,13 +27,12 @@
 </table>
 
 
-
-<table class="table" style="table-layout:auto" border="1" align="center">
+<table class="table" border="1" align="center">
     <tr style="background-color:cadetblue">
-        <th>
+        <th class="titlecol">
             @Html.DisplayNameFor(model => model.ImageTitle)
         </th>
-        <th>
+        <th class="firstnamecol">
             @Html.DisplayNameFor(model => model.Member.FirstName)
         </th>
         <th>
@@ -48,10 +47,10 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td style="vertical-align:middle">
+            <td style="vertical-align:middle" class="titlecol">
                 @Html.DisplayFor(modelItem => item.ImageTitle)
             </td>
-            <td style="vertical-align:middle">
+            <td style="vertical-align:middle" class="firstnamecol">
                 @Html.DisplayFor(modelItem => item.Member.FirstName)
             </td>
             <td style="vertical-align:middle">

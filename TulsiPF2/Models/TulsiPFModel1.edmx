@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="TulsiPFModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="NSTulsiPFModel2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="DonationTab">
           <Key>
             <PropertyRef Name="DonationId" />
@@ -13,7 +13,7 @@
           <Property Name="Donation" Type="int" />
           <Property Name="DonationDate" Type="date" />
           <Property Name="DonationDetail" Type="nchar" MaxLength="100" />
-          <Property Name="MemberId" Type="int" />
+          <Property Name="MemberId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ImageTab">
           <Key>
@@ -22,10 +22,8 @@
           <Property Name="ImageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ImageTitle" Type="nchar" MaxLength="100" />
           <Property Name="ImagePath" Type="varchar(max)" />
-          <Property Name="MemberId" Type="int" />
+          <Property Name="MemberId" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Member">
           <Key>
             <PropertyRef Name="MemberId" />
@@ -51,8 +49,20 @@ warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key
           <Property Name="SexCode" Type="nchar" MaxLength="1" Nullable="false" />
           <Property Name="SexDesc" Type="nchar" MaxLength="15" />
         </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="UserPassword" Type="varchar" MaxLength="100" />
+          <Property Name="IsAdmin" Type="varchar" MaxLength="1" />
+          <Property Name="UserEmail" Type="varchar" MaxLength="100" />
+          <Property Name="UserMobile" Type="varchar" MaxLength="15" />
+          <Property Name="UserCreatedDate" Type="date" />
+        </EntityType>
         <Association Name="FK_DonationTab_Member">
-          <End Role="Member" Type="Self.Member" Multiplicity="0..1">
+          <End Role="Member" Type="Self.Member" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="DonationTab" Type="Self.DonationTab" Multiplicity="*" />
@@ -66,7 +76,7 @@ warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ImageTab_Member">
-          <End Role="Member" Type="Self.Member" Multiplicity="0..1">
+          <End Role="Member" Type="Self.Member" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="ImageTab" Type="Self.ImageTab" Multiplicity="*" />
@@ -91,11 +101,12 @@ warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TulsiPFModelStoreContainer">
+        <EntityContainer Name="NSTulsiPFModel2StoreContainer">
           <EntitySet Name="DonationTab" EntityType="Self.DonationTab" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ImageTab" EntityType="Self.ImageTab" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SexTab" EntityType="Self.SexTab" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_DonationTab_Member" Association="Self.FK_DonationTab_Member">
             <End Role="Member" EntitySet="Member" />
             <End Role="DonationTab" EntitySet="DonationTab" />
@@ -112,7 +123,7 @@ warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="TulsiPFModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="NSTulsiPFModel2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="DonationTab">
           <Key>
             <PropertyRef Name="DonationId" />
@@ -121,7 +132,7 @@ warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key
           <Property Name="Donation" Type="Int32" />
           <Property Name="DonationDate" Type="DateTime" Precision="0" />
           <Property Name="DonationDetail" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Name="MemberId" Type="Int32" />
+          <Property Name="MemberId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Member" Relationship="Self.FK_DonationTab_Member" FromRole="DonationTab" ToRole="Member" />
         </EntityType>
         <EntityType Name="ImageTab">
@@ -131,7 +142,7 @@ warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key
           <Property Name="ImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ImageTitle" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="MemberId" Type="Int32" />
+          <Property Name="MemberId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Member" Relationship="Self.FK_ImageTab_Member" FromRole="ImageTab" ToRole="Member" />
         </EntityType>
         <EntityType Name="Member">
@@ -163,8 +174,20 @@ warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key
           <Property Name="SexDesc" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Members" Relationship="Self.FK_Member_SexTab" FromRole="SexTab" ToRole="Member" />
         </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsAdmin" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="UserEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserMobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="UserCreatedDate" Type="DateTime" Precision="0" />
+        </EntityType>
         <Association Name="FK_DonationTab_Member">
-          <End Role="Member" Type="Self.Member" Multiplicity="0..1">
+          <End Role="Member" Type="Self.Member" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="DonationTab" Type="Self.DonationTab" Multiplicity="*" />
@@ -178,7 +201,7 @@ warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ImageTab_Member">
-          <End Role="Member" Type="Self.Member" Multiplicity="0..1">
+          <End Role="Member" Type="Self.Member" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="ImageTab" Type="Self.ImageTab" Multiplicity="*" />
@@ -203,11 +226,12 @@ warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TulsiPFModels" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TulsiPFEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="DonationTabs" EntityType="Self.DonationTab" />
           <EntitySet Name="ImageTabs" EntityType="Self.ImageTab" />
           <EntitySet Name="Members" EntityType="Self.Member" />
           <EntitySet Name="SexTabs" EntityType="Self.SexTab" />
+          <EntitySet Name="Users" EntityType="Self.User" />
           <AssociationSet Name="FK_DonationTab_Member" Association="Self.FK_DonationTab_Member">
             <End Role="Member" EntitySet="Members" />
             <End Role="DonationTab" EntitySet="DonationTabs" />
@@ -226,9 +250,9 @@ warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TulsiPFModelStoreContainer" CdmEntityContainer="TulsiPFModels">
+        <EntityContainerMapping StorageEntityContainer="NSTulsiPFModel2StoreContainer" CdmEntityContainer="TulsiPFEntities2">
           <EntitySetMapping Name="DonationTabs">
-            <EntityTypeMapping TypeName="TulsiPFModel.DonationTab">
+            <EntityTypeMapping TypeName="NSTulsiPFModel2.DonationTab">
               <MappingFragment StoreEntitySet="DonationTab">
                 <ScalarProperty Name="DonationId" ColumnName="DonationId" />
                 <ScalarProperty Name="Donation" ColumnName="Donation" />
@@ -239,7 +263,7 @@ warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ImageTabs">
-            <EntityTypeMapping TypeName="TulsiPFModel.ImageTab">
+            <EntityTypeMapping TypeName="NSTulsiPFModel2.ImageTab">
               <MappingFragment StoreEntitySet="ImageTab">
                 <ScalarProperty Name="ImageId" ColumnName="ImageId" />
                 <ScalarProperty Name="ImageTitle" ColumnName="ImageTitle" />
@@ -249,7 +273,7 @@ warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Members">
-            <EntityTypeMapping TypeName="TulsiPFModel.Member">
+            <EntityTypeMapping TypeName="NSTulsiPFModel2.Member">
               <MappingFragment StoreEntitySet="Member">
                 <ScalarProperty Name="MemberId" ColumnName="MemberId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -268,10 +292,23 @@ warning 6002: The table/view 'TulsiPF.dbo.ImageTab2' does not have a primary key
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SexTabs">
-            <EntityTypeMapping TypeName="TulsiPFModel.SexTab">
+            <EntityTypeMapping TypeName="NSTulsiPFModel2.SexTab">
               <MappingFragment StoreEntitySet="SexTab">
                 <ScalarProperty Name="SexCode" ColumnName="SexCode" />
                 <ScalarProperty Name="SexDesc" ColumnName="SexDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="NSTulsiPFModel2.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="UserMobile" ColumnName="UserMobile" />
+                <ScalarProperty Name="UserCreatedDate" ColumnName="UserCreatedDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

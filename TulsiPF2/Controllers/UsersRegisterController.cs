@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using TulsiPF2.ViewModels;
 using TulsiPF2.Models;
+using TulsiPF2.ViewModels;
 
 namespace TulsiPF2.Controllers
 {
-    public class UserRegisterController : Controller
+    public class UsersRegisterController : Controller
     {
-        private TulsiPFEntities4 db = new TulsiPFEntities4();
+        public TulsiPFEntities2 db = new TulsiPFEntities2();
 
         // GET: UserRegister
         [HttpGet]
@@ -19,11 +17,11 @@ namespace TulsiPF2.Controllers
         {
             return View();
         }
-
+        
 
         // GET: UserRegister
         [HttpPost]
-        public ActionResult Registration(UserRegistration obj)
+        public ActionResult Registration(UserRegistrations obj)
         {
             bool userexist = db.Users.Any(x => x.UserName == obj.UserName);
             if (userexist)
@@ -40,18 +38,18 @@ namespace TulsiPF2.Controllers
             }
 
             User u = new User();
-
-            u.UserName = obj.UserName;
-            u.UserPassword = obj.UserPassword;
-            u.UserEmail = obj.UserEmail;
-            u.UserMobile = obj.UserMobile;
-            u.UserCreatedDate = DateTime.Now;
-
-            db.Users.Add(u);
-            db.SaveChanges();
+            {
+                u.UserName = obj.UserName;
+                u.UserPassword = obj.UserPassword;
+                u.UserEmail = obj.UserEmail;
+                u.UserMobile = obj.UserMobile;
+                u.UserCreatedDate = DateTime.Now;
+                db.Users.Add(u);
+                db.SaveChanges();
+            }
 
             ViewBag.RegistrationSuccessful = "Registration Successfully Completed";
-           
+
             return View();
         }
     }

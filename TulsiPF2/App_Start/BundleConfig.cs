@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace TulsiPF2
 {
@@ -23,9 +22,7 @@ namespace TulsiPF2
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap-journal.css",
-                      "~/Content/site.css",
-                      "~/content/SureshStyleSheet.css"));
+                      "~/Content/bootstrap-journal.css"));              
         }
     }
 }

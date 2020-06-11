@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using System.Windows;
 using TulsiPF2.Models;
@@ -15,7 +12,7 @@ namespace TulsiPF2.Controllers
 {
     public class ImageTabsController : Controller
     {
-        private TulsiPFModels db = new TulsiPFModels();
+        public TulsiPFEntities2 db = new TulsiPFEntities2();
 
 
         [HttpGet]
@@ -25,7 +22,7 @@ namespace TulsiPF2.Controllers
             return View();
         }
 
-      
+
         [HttpPost]
         public ActionResult AddImage(ImageTab tab)
         {
@@ -40,25 +37,28 @@ namespace TulsiPF2.Controllers
                     fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
                     tab.ImagePath = "~/Image/" + fileName;   // saving table column
 
-                    fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);  
+                    fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
                     tab.ImageFile.SaveAs(fileName);   // to save with full path of the folder
 
                     db.ImageTabs.Add(tab);
                     db.SaveChanges();
                     ModelState.Clear();
-                    MessageBox.Show("Image has been uploaded successfully !!");
-                    return RedirectToRoute("ImageTabs");
+                    ViewBag.ImageMessage = "Image has been uploaded successfully !!";
+                    //MessageBox.Show("Image has been uploaded successfully !!");
+                    //return RedirectToRoute("ImageTabs");
+                    //return RedirectToAction("AddImage", "ImageTabs");
+                    return View();
                 }
                 else
                 {
-                    MessageBox.Show("Not an Image file - must be JPG, JPEG, PNG only !");
-                    return RedirectToRoute("ImageTabs");
+                    ViewBag.ImageMessage = "Not an Image file - must be JPG, JPEG, PNG only !";
+                    return View();
                 }
             }
             else
             {
-                MessageBox.Show("Invalid file, or size is 0 byte ");
-                return RedirectToRoute("ImageTabs");
+                ViewBag.ImageMessage = "Invalid file, or size is 0 byte";
+                return View();
             }
 
         }

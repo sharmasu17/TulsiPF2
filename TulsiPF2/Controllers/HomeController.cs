@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace TulsiPF2.Controllers
@@ -16,7 +13,7 @@ namespace TulsiPF2.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Tulsi Phuloria Foundation";
-           
+
             return View();
         }
 
@@ -29,16 +26,16 @@ namespace TulsiPF2.Controllers
 
 
         [HttpPost]
-        public ActionResult Contact(string message)
+        public ActionResult Contact(string msg)
         {
-            ViewBag.Message = "Thanks, we got your message.";
+            ViewBag.Message = "Thanks, we got your message - " + msg;
 
             return View();
         }
 
         public ActionResult MemActivities()
         {
-            List<SelectListItem> Items = new List<SelectListItem> ();
+            List<SelectListItem> Items = new List<SelectListItem>();
             SelectListItem item1 = new SelectListItem() { Text = "Select Options", Value = "1", Selected = true };
             SelectListItem item2 = new SelectListItem() { Text = "Add/Upd/Del Member Details", Value = "2", Selected = false };
             SelectListItem item3 = new SelectListItem() { Text = "Add/Upd/Del Member Donation", Value = "3", Selected = false };
@@ -76,7 +73,7 @@ namespace TulsiPF2.Controllers
             Items.Add(item2);
             Items.Add(item3);
             Items.Add(item4);
-    
+
 
             ViewBag.Memberdata = Items;
 

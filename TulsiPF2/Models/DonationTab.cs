@@ -18,7 +18,7 @@ namespace TulsiPF2.Models
         public Nullable<int> Donation { get; set; }
         public Nullable<System.DateTime> DonationDate { get; set; }
         public string DonationDetail { get; set; }
-        public Nullable<int> MemberId { get; set; }
+        public int MemberId { get; set; }
     
         public virtual Member Member { get; set; }
     }

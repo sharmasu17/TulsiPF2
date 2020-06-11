@@ -4,7 +4,7 @@
 @{
     ViewBag.Title = "Listing of Members";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    WebGrid grid = new WebGrid(source: Model, canPage: true, canSort: true, rowsPerPage: 4, defaultSort: null);
+    WebGrid grid = new WebGrid(source: Model, canPage: true, canSort: true, rowsPerPage: 10, defaultSort: null);
 
 }
 
@@ -15,11 +15,11 @@
            @{
                 if (@Session["IsAdmin"] != null)
                 {
-                    <h4 style="font-size:medium">@Html.ActionLink("Go Back", "MemActivities", "Home") </h4>
+                    <h3 style="font-size:medium">@Html.ActionLink("Go Back", "MemActivities", "Home") </h3>
                 }
                 else
                 {
-                    <h4 style="font-size:medium">@Html.ActionLink("Go Back", "MemListing", "Home") </h4>
+                    <h3 style="font-size:medium">@Html.ActionLink("Go Back", "MemListing", "Home") </h3>
                 }
             }
         </td>
@@ -31,6 +31,7 @@
 <script src="~/Scripts/gridmvc.js"></script>
 <script src="~/Scripts/jquery-3.4.1.js"></script>
 
+<h4><b>(Click on column to Sort) </b> </h4>
 
 <div style="width:100%" class="table table-bordered">
 
