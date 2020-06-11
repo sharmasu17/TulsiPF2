@@ -1,6 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using TulsiPF2.Models;
 using TulsiPF2.ViewModels;
@@ -10,7 +11,7 @@ namespace TulsiPF2.Controllers
 {
     public class UserController : Controller
     {
-        private TulsiPFEntities2 db = new TulsiPFEntities2();
+        public TulsiPFEntities2 db = new TulsiPFEntities2();
        
         [HttpGet]
         public ActionResult Index()
@@ -37,7 +38,6 @@ namespace TulsiPF2.Controllers
                     Session["UserId"] = userdetails.UserID;    // valid user and storing Userid to session for timeout
                     Session["UserName"] = userdetails.UserName;
                     Session["IsAdmin"] = userdetails.IsAdmin;
-
                     return RedirectToAction("MemActivities", "Home");
 
                 }
@@ -54,7 +54,14 @@ namespace TulsiPF2.Controllers
 
         public ActionResult LogOut()
         {
+            Session["UserId"] = null;
+            Session["UserName"] = null;
+            Session["UserPassword"] = null;
+
             Session.Abandon();
+            Session.RemoveAll();
+            Session.Clear();
+           
             return RedirectToAction("Index", "Home");
         }
 

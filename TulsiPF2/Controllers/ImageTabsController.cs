@@ -12,7 +12,7 @@ namespace TulsiPF2.Controllers
 {
     public class ImageTabsController : Controller
     {
-        private TulsiPFEntities2 db = new TulsiPFEntities2();
+        public TulsiPFEntities2 db = new TulsiPFEntities2();
 
 
         [HttpGet]
@@ -43,19 +43,22 @@ namespace TulsiPF2.Controllers
                     db.ImageTabs.Add(tab);
                     db.SaveChanges();
                     ModelState.Clear();
-                    MessageBox.Show("Image has been uploaded successfully !!");
-                    return RedirectToRoute("ImageTabs");
+                    ViewBag.ImageMessage = "Image has been uploaded successfully !!";
+                    //MessageBox.Show("Image has been uploaded successfully !!");
+                    //return RedirectToRoute("ImageTabs");
+                    //return RedirectToAction("AddImage", "ImageTabs");
+                    return View();
                 }
                 else
                 {
-                    MessageBox.Show("Not an Image file - must be JPG, JPEG, PNG only !");
-                    return RedirectToRoute("ImageTabs");
+                    ViewBag.ImageMessage = "Not an Image file - must be JPG, JPEG, PNG only !";
+                    return View();
                 }
             }
             else
             {
-                MessageBox.Show("Invalid file, or size is 0 byte ");
-                return RedirectToRoute("ImageTabs");
+                ViewBag.ImageMessage = "Invalid file, or size is 0 byte";
+                return View();
             }
 
         }

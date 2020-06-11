@@ -8,7 +8,7 @@ namespace TulsiPF2.Controllers
 {
     public class DonationTabsController : Controller
     {
-        private TulsiPFEntities2 db = new TulsiPFEntities2();
+        public TulsiPFEntities2 db = new TulsiPFEntities2();
 
         // GET: DonationTabs
         public ActionResult Index()

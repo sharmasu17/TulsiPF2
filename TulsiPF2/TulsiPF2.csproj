@@ -185,16 +185,10 @@
     <Compile Include="ViewModels\UserRegistrations.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap-journal.css" />
-    <Content Include="Content\SureshStylesheet.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="ImageLogo\favicon.ico" />
     <Content Include="ImageLogo\TulsiF.jpg" />
     <Content Include="ImageLogo\TulsiF2.jpg" />
@@ -222,6 +216,7 @@
     <Content Include="Models\TulsiPFModel1.edmx.diagram">
       <DependentUpon>TulsiPFModel1.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\TulsiPFoundation - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\TulsiPFoundation - ReadOnly - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\TulsiPFoundation - Web Deploy.pubxml" />
@@ -278,10 +273,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
@@ -318,6 +309,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
+      <UserProperties content_4bootstrap_1min_1css_1map__JsonSchema="" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
