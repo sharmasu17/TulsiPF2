@@ -20,6 +20,18 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 
+.aboutus-content {
+    padding-left: 25px;
+    padding-right: 25px;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    text-orientation:sideways-left;
+    font-family:Arial;
+    font-weight:500;
+   
+}
 
 /*  Added by Suresh */
 
@@ -30,10 +42,18 @@ html {
 }
 
 
+img {
+    display: block;
+    margin: 0 auto 0 auto;
+}
+
+/*  end addition by Suresh */
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -2058,6 +2078,8 @@ pre {
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+
+        
 }
 
 @media (min-width: 768px) {

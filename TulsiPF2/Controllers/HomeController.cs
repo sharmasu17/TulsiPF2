@@ -12,26 +12,26 @@ namespace TulsiPF2.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Tulsi Phuloria Foundation";
+            //ViewBag.Message = "Tulsi Foundation India";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Initiatives()
         {
-            ViewBag.Message = "Do you want to send message, please write below and click send.";
+            //ViewBag.Message = "Do you want to send message, please write below and click send.";
 
             return View();
         }
 
 
-        [HttpPost]
-        public ActionResult Contact(string msg)
-        {
-            ViewBag.Message = "Thanks, we got your message - " + msg;
+        //[HttpPost]
+        //public ActionResult Contact(string msg)
+        //{
+        //    ViewBag.Message = "Thanks, we got your message - " + msg;
 
-            return View();
-        }
+        //    return View();
+        //}
 
         public ActionResult MemActivities()
         {

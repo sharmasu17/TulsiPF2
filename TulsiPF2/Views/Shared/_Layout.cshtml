@@ -29,19 +29,20 @@
                             &nbsp; &nbsp
                         </td>
                         <td>
-                            @Html.ActionLink(" Tulsi Phuloria Foundation", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                            @Html.ActionLink(" Tulsi Foundation India", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                         </td>
                     </tr>
                 </Table>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Login/Registration", "Index", "User")</li>
-                    <li><span style="padding-left:300px" ></span>   </li>
-                    <li>@Html.ActionLink("Logout", "LogOut", "User") </li>
+                    <li>@Html.ActionLink("HOME", "Index", "Home")</li>
+                    <li>@Html.ActionLink("ABOUT US", "About", "Home")</li>
+                    <li>@Html.ActionLink("OUR INITIATIVES", "Initiatives", "Home")</li>
+                    <li>@Html.ActionLink("PARTNER WITH US", "Initiatives", "Home")</li>
+                    <li>@Html.ActionLink("LOGIN", "Index", "User")</li>
+                    <li><span style="padding-left:200px"></span>   </li>
+                    <li>@Html.ActionLink("LOGOUT", "LogOut", "User") </li>
                 </ul>               
             </div>
         </div>
@@ -50,7 +51,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year -           Registered in year 2014</p>
+            <p>&copy; @DateTime.Now.Year -  Soch Badlo, Desh Badlega</p>
         </footer>
     </div>
 

@@ -216,10 +216,9 @@
     <Content Include="Models\TulsiPFModel1.edmx.diagram">
       <DependentUpon>TulsiPFModel1.edmx</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <None Include="Properties\PublishProfiles\TulsiPFoundation - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\TulsiPFoundation - ReadOnly - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\TulsiPFoundation - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile-FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\tulsifoundationindia.org - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\tulsifoundationindia.org - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -243,7 +242,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Initiatives.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\MemActivities.cshtml" />
     <Content Include="Views\MemberList\Listing.cshtml" />
